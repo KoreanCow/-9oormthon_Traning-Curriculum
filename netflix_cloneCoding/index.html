@@ -6,7 +6,9 @@
     <title>Document</title>
     
     <link rel='stylesheet' href='styles/header.css'>
-    <link rel='stylesheet' href='styles/index.css'>
+    <link rel='stylesheet' href='styles/main.css'>
+    <link rel="stylesheet" href="styles/movieList.css">
+    <script src='script.js' defer></script>
 </head>
 
 <body> <!-- 바디에 백그라운드 이미지 포스터-->
@@ -34,8 +36,32 @@
         </div>
     </div>
 
-    <nav class='movie_list'> <!-- 영화 나열 -->
-
-    </nav>
+    <div class='movie_list_bar'> <!-- 영화 나열 -->
+        <div class='movie_list_box'> 
+            <span class='list_title'>NETFLIX ORIGINALS</span> <!-- 리스트 이름 -->
+            <div class='movie_list scroll_script'> <!-- 영화 리스트 -->
+                <img class='movie' src='assets/poster2.webp' alt='movie'>
+                <img class='movie' src='assets/poster3.webp' alt='movie'>
+                <img class='movie' src='assets/poster4.webp' alt='movie'>
+                <img class='movie' src='assets/poster5.webp' alt='movie'>
+                <img class='movie' src='assets/poster6.webp' alt='movie'>
+                <img class='movie' src='assets/poster.webp' alt='movie'>
+                <img class='movie' src='assets/poster7.webp' alt='movie'>
+                <img class='movie' src='assets/poster2.webp' alt='movie'>
+            </div>
+        </div>
+        <div class='movie_list_box'>
+            <span class='list_title'>Trending Now</span>
+            <div class='movie_list scroll_script'>
+                <img class='movie' src='assets/poster.webp' alt='movie'>
+                <img class='movie' src='assets/poster1.jpeg' alt='movie'>
+                <img class='movie' src='assets/poster7.webp' alt='movie'>
+                <img class='movie' src='assets/poster6.webp' alt='movie'>
+                <img class='movie' src='assets/poster2.webp' alt='movie'>
+                <img class='movie' src='assets/poster3.webp' alt='movie'>
+                <img class='movie' src='assets/poster4.webp' alt='movie'>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
