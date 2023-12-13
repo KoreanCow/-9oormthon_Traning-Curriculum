@@ -1,0 +1,45 @@
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header_icon{
+    width: 10%;
+    /* max-width: 975px; */
+    padding: 0 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo {
+    width: 160px;
+    height: 60px;
+    cursor: pointer;
+    object-fit: fill;
+}
+.logo:hover {
+    transition: all 0.1s;   
+    width: 180px;
+    height: 70px;
+}
+
+
+.user_icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 60%;
+}
+.user_icon:hover {
+    transition: all 0.1s;   
+    width: 35px;
+    height: 35px;
+}
