@@ -9,3 +9,6 @@
 ### neflix_cloneCoding
 * 실습과제 HTML, CSS를 이용한 넷플릭스 클론 코딩
 <img src='netflix_cloneCoding/result.png' width='500' height='300'>
+
+### js_source_code
+* Javascript 기초/문법
