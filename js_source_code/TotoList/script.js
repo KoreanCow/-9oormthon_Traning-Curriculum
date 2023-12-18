@@ -60,6 +60,8 @@ function createTodoElement(item) {
 
         if(item.complete) {
             itemEl.classList.add('complete');
+        inputEl.style.backgroundColor = 'lightgreen';
+            
         }else {
             itemEl.classList.remove('complete');
         }
@@ -84,6 +86,7 @@ function createTodoElement(item) {
     removeBtnEl.addEventListener('click', () => {
         todos = todos.filter(t => t.id !== item.id);
         itemEl.remove();
+        saveToLocalStorage();
     });
 
     acticonsEl.append(editBtnEl);
