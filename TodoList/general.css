@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'baemin_jua';
+    src: url('assets/BMJUA.otf') format('opentype');
+}
+*{
+    font-family: baemin_jua;
+    margin: 0;
+    padding: 0;
+}
+.complete input{ /* 로컬스토리지 로드 시 css적용이 안될 때 대비 해서 제작 */
+    text-decoration: line-through;
+}
+
+body {
+    background-image: url(assets/pixel.png);
+    background-size: cover;
+    min-width: 100vh;
+    min-height: 100vh;
+    background-color: none;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+:root {
+    --light : #ffffff;
+    --dark : #000000;
+    --transition :  rgba(138, 138, 138, 0.2);
+}
+
+:root.darkTheme{
+    --light : #ffffff;
+    --dark : #dcdcdc;
+    --transition :  rgba(138, 138, 138, 0.2);
+    body{
+        background-image: url(assets/pixel_dark.png);
+    }
+    .moon{
+        background-image: url(assets/icons/sun.svg);
+    }
+}
