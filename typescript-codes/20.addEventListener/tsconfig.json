@@ -1,0 +1,50 @@
+// {
+//     //컴파일러 옵션 지정
+//     "compilerOptions": {}, 
+//     //컴파일할 개별 파일 목록(확장자 이름 필수)
+//     "files": [
+//         "node_modules/library/index.ts"
+//     ],
+//     //컴파일러를 이용해서 변환할 폴더 경로를 지정
+//     "include": [
+//         "src/**/*",
+//         "tests/**/*"
+//     ],
+//     //컴파일러를 이용해서 변환하지 않을 폴더 경로를 지정
+//     "exclude": [
+//         "node_modules",
+//         "dist"
+//     ],
+//     // 상속해서 사용할 다른 TS 구성파일 지정
+//     "extends": "main_config.json"
+// }
+{
+    "compilerOptions": {
+        "rootDir": "./src", // 소스 파일 안에서 root 폴더를 명시
+        "outDir": "./build/js", // ts 컴파일 후에 js 파일이 어느 경로로 들어가는지 명시
+        "target": "ES2015", //컴파일될 ES 버전 명시 | ES3 
+        "noEmitOnError": false, // 타입 검사 오류가 보고되면 파일 내보내기를 비활성화 | false
+        "module": "ESNext", // 어떠한 모듈 시스템을 사용할 것인지 지정
+        "moduleResolution": "Node", // 모듈 해석 방식 지정 | Node
+        "esModuleInterop": true, // ESM 모듈 방식 호환성 활성화 | false
+        "lib": [
+            "ESNext",
+            "DOM"
+        ], //컴파일 할 때 포함될 라이브러리 목록
+        "allowJs": true, // 컴파일시 자바스크립트 파일도 포함할 수 있는지
+        "checkJs": false, // 자바스크립트 파일의 오류 보고 여부
+        "sourceMap": true, // 소스맵 파일을 생성, 디버깅 도구 등에서 JS 파일의 원본 TS 파일 표시 가능 | false
+        "isolatedModules": true, // true일 때 모든 소스코드 파일을 모듈로 만들기를 강제한다. | false
+        "removeComments": true, // true면 컴파일된 js에 기존의 주석을 모두 제거
+        "forceConsistentCasingInFileNames": false, // 파일의 이름을 대소문자 판별하게 하는 옵션
+        "declaration": true, // d.ts 선언 파일 생성 옵션
+        "strict": true, // 모든 엄격한 유형 검사 옵션 활성화 
+        // "noImplicitAny": true, // 명시적이지 않은 'any' 유형으로 표현식 및 선언 사용 시 오류 발생 
+        // "strictNullChecks": true, // 엄격한 null 검사 사용 
+        // "strictFunctionTypes": true, // 엄격한 함수 유형 검사 사용 
+        // "strictBindCallApply": true, // 엄격한 'bind', 'call', 'apply' 함수 메서드 사용 
+        // "strictPropertyInitialization": true, // 클래스에서 속성 초기화 엄격 검사 사용 
+        // "noImplicitThis": true, // 명시적이지 않은 'any'유형으로 'this' 표현식 사용 시 오류 발생 
+        // "alwaysStrict": true, // 엄격모드에서 구문 분석 후, 각 소스 파일에 "use strict" 코드를 출력 
+    }
+}
