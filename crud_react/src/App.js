@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  // const [edited, setEdited] = useState(false);
-
-  // const [changeTitle, setChangeTitle] = useState('');
+  const [edited, setEdited] = useState(false);
+  // const [changeTitle, setChangeTitle] = useState('');  // 컴포넌트 세분화 시 사용
 
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(0);
@@ -38,6 +37,7 @@ function App() {
       title: title,
       price: price,
     }
+
     setInfos([...infos, newInfos]);
     setTitle('');
     setPrice(0);
@@ -52,15 +52,36 @@ function App() {
   const removeAll = () => {
     setInfos([]);
   }
-  // const onClickEditButton = () => {
-    
-  //   if(!edited) {
-  //     setEdited(true);
-  //   } else {
-  //     setEdited(false);
-  //   }
-  // }
+  const onClickEditButton = (id) => {
 
+    if (!edited) {
+      setEdited(true);
+    } else {
+      setEdited(false);
+    }
+  }
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+
+    let newInfos = infos.map((data, index) => {
+      // console.log(data);
+      if (data.id === index) {
+        return {
+          id: data.id,
+          title: title,
+          price: price,
+        }
+      } else {
+        return data;
+      }
+    })
+
+    setInfos(newInfos);
+    setTitle('');
+    setPrice(0);
+
+  }
 
   return (
     <div>
@@ -73,17 +94,27 @@ function App() {
           <span>비용</span>
         </div>
         <div>    {/* 지출항목 비용 인풋 */}
-        {/* <Form 
+          {/* <Form 
           title={title} setTitle={setTitle} 
           price={price} setPrice={setPrice} 
           edited={edited} setEdited={setEdited}
           handleSubmit={handleSubmit} 
         /> */}
-          <form>
-            <input type='text' name='Title' placeholder='예) 렌트비' value={title} onChange={handleTitle}></input>
-            <input type='number' name='Price' placeholder='0' value={price} onChange={handlePrice}></input>
-            <button type='submit' onClick={handleSubmit}> 제출 </button>
-          </form>
+
+          {edited ?
+            <form>
+              <input type='text' name='Title' placeholder='예) 렌트비' value={title} onChange={handleTitle}></input>
+              <input type='number' name='Price' placeholder='0' value={price} onChange={handlePrice}></input>
+              <button type='submit' onClick={handleEditSubmit}> {edited ? '수정' : '제출'} </button>
+            </form>
+            :
+            <form>
+              <input type='text' name='Title' placeholder='예) 렌트비' value={title} onChange={handleTitle}></input>
+              <input type='number' name='Price' placeholder='0' value={price} onChange={handlePrice}></input>
+              <button type='submit' onClick={handleSubmit}> 제출 </button>
+            </form>
+
+          }
           {infos.map((data, index) => (
             <div className='item' key={data.id} title={data.title} price={data.price}>
               <span>
@@ -92,7 +123,7 @@ function App() {
               <span>
                 {parseInt(data.price)}원
               </span>
-              <button className='edit_btn'>수정</button>
+              <button className='edit_btn' onClick={() => onClickEditButton(data.id)}>수정</button>
               <button className='remove_btn' onClick={() => removeEvent(data.id)}>삭제</button>
             </div>
           ))}
