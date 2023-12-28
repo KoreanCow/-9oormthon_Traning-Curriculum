@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [edited, setEdited] = useState(false);
+  const [choicedId, setChoicedId] = useState(0);
   // const [changeTitle, setChangeTitle] = useState('');  // 컴포넌트 세분화 시 사용
 
   const [title, setTitle] = useState('');
@@ -43,6 +44,24 @@ function App() {
     setPrice(0);
   }
 
+
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
+    // infos.[index].id
+    
+    let editInfos = {
+      id: choicedId,
+      title: title,
+      price: price,
+    }
+
+    console.log(editInfos);
+    setInfos(infos.map((info, index) => info.id === editInfos.id? editInfos : info));
+    setEdited(false);
+    setTitle('');
+    setPrice(0);
+  }
+
   const removeEvent = (id) => {
     let newInfos = infos.filter((data) => data.id !== id);
     console.log(infos);
@@ -52,35 +71,23 @@ function App() {
   const removeAll = () => {
     setInfos([]);
   }
-  const onClickEditButton = (id) => {
 
+  const onClickEditButton = (id) => {
     if (!edited) {
       setEdited(true);
+
+      const editInfos = infos.find(info => info.id === id)
+      // console.log(id);
+      setChoicedId(id);
+      setTitle(editInfos.title);
+      setPrice(editInfos.price);
+
     } else {
       setEdited(false);
-    }
-  }
 
-  const handleEditSubmit = (e) => {
-    e.preventDefault();
-
-    let newInfos = infos.map((data, index) => {
-      // console.log(data);
-      if (data.id === index) {
-        return {
-          id: data.id,
-          title: title,
-          price: price,
-        }
-      } else {
-        return data;
-      }
-    })
-
-    setInfos(newInfos);
-    setTitle('');
+      setTitle('');
     setPrice(0);
-
+    }
   }
 
   return (
@@ -94,12 +101,6 @@ function App() {
           <span>비용</span>
         </div>
         <div>    {/* 지출항목 비용 인풋 */}
-          {/* <Form 
-          title={title} setTitle={setTitle} 
-          price={price} setPrice={setPrice} 
-          edited={edited} setEdited={setEdited}
-          handleSubmit={handleSubmit} 
-        /> */}
 
           {edited ?
             <form>
