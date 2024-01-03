@@ -1,4 +1,4 @@
-# 구름톤 트레이닝 커리큘럼 ( 9oormthon_Traning-Curriculum )
+# 구름톤 트레이닝 커리큘럼 ( 9oormthon-traning-curriculum )
 구름톤 트레이닝 일반 강의 및 실습 과제 모음
 
 ## 디렉토리 소개
