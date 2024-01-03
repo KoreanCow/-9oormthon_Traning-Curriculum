@@ -1,3 +1,7 @@
+* Make custom hooks for SearchBox Debounce and Exit when click modals outside
+* use Axios, Swiper, Styled Component, React-Router-dom modules
+* add component splitting 
+---
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
