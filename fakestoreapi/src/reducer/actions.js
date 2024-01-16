@@ -12,3 +12,12 @@ export const updateItemCount = (product, actionType) => ({
   type: 'UPDATE_ITEM_COUNT',
   payload: { product, actionType },
 });
+
+export const loginSuccess = (user) => ({
+  type: 'LOGIN_SUCCESS',
+  payload: user,
+});
+
+export const logoutSuccess = () => ({
+  type: 'LOGOUT_SUCCESS',
+});

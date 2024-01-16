@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { productCategory, testProducts } from './testProducts';
 import './TestingComponent.scss'
 import axios from 'axios';
@@ -6,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../reducer/actions';
 
 const TestingComponent = () => {
+
   const dispatch = useDispatch();
 
   const [products, setProducts] = useState([]);

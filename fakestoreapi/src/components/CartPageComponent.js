@@ -8,7 +8,7 @@ const CartPageComponent = () => {
   const [sum, setSum] = useState(0);
 
   const dispatch = useDispatch();
-  const cartList = useSelector((state) => state.cartList);
+  const cartList = useSelector((state) => state.cart.cartList);
   useEffect(() => {
     let totalSum = 0;
     cartList.forEach(product => {
