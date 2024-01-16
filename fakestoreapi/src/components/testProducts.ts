@@ -1,14 +1,15 @@
 export interface Product {
   id: number;
+  count?: number;
   title: string;
   price: number;
   description: string;
   category: string;
   image: string;
-  rating: {
+  rating?: {
     rate: number;
     count: number;
-  }
+  };
 }
 export const testProducts: Product[] = [
   {

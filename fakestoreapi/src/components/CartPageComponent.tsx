@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './CartPageComponent.scss';
 import { removeToCart, updateItemCount } from '../reducer/actions';
 import { Link } from 'react-router-dom';
-import { Product } from './testProducts'; // 해당 경로를 실제 경로로 바꿔주세요
+import { Product } from './testProducts';
 
 const CartPageComponent = () => {
   const [sum, setSum] = useState(0);
@@ -14,8 +14,9 @@ const CartPageComponent = () => {
   useEffect(() => {
     let totalSum = 0;
     cartList.forEach((product: Product) => {
-      if (product.rating.count >= 2) {
-        totalSum += product.price * product.rating.count;
+      const count = product.rating?.count || 0; // 기존 코드에서 수정
+      if (count >= 2) {
+        totalSum += product.price * count;
       } else {
         totalSum += product.price;
       }
@@ -29,7 +30,8 @@ const CartPageComponent = () => {
   };
 
   const countHandler = (actionType: string, item: Product) => {
-    dispatch(updateItemCount(item, actionType));
+    // rating이라는 속성이 없는 경우를 대비하여 rating을 명시적으로 전달
+    // dispatch(updateItemCount({ ...item, rating: item.rating || { rate: 0, count: 0 } }, actionType));
   };
 
   return (
@@ -43,16 +45,17 @@ const CartPageComponent = () => {
               <div className='product_Summary'>
                 <div style={{ fontSize: '14px', fontWeight: 600, color: 'lightgray' }}>{item.category}</div>
                 <div style={{ fontSize: '16px', fontWeight: 700 }}>{item.title}</div>
-                <div>{item.price} x {item.rating.count} = $ {item.price * item.rating.count}</div>
+                <div>{item.price} x {item.rating?.count || 0} = $ {item.price * (item.rating?.count || 0)}</div>
+
               </div>
               <div className='product_Count'>
                 <button
                   onClick={() => countHandler('DECREMENT', item)}
-                  disabled={item.rating.count === 0}
+                  disabled={!item.rating || item.rating.count === 0}
                 >
                   -
                 </button>
-                <input disabled type='number' value={item.rating.count} />
+                <input disabled type='number' value={item.rating?.count || 0} />
                 <button onClick={() => countHandler('INCREMENT', item)}>
                   +
                 </button>
