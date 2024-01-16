@@ -1,5 +1,3 @@
-// SignUpComponent.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -9,11 +7,11 @@ import { loginSuccess } from '../reducer/actions';
 const SignUpComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
@@ -27,7 +25,7 @@ const SignUpComponent = () => {
       navigate('/');
     } catch (error) {
       alert('중복 된 이메일 입니다');
-      setError(error.message);
+      setError((error as Error).message || 'An error occurred');
     }
   };
 

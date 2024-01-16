@@ -5,6 +5,7 @@ import HeaderComponents from './components/HeaderComponents';
 import CartPageComponent from './components/CartPageComponent';
 import LoginPageComponent from './components/LoginPageComponent';
 import SignUpComponent from './components/SignUpComponent';
+import React from 'react';
 // import { useState } from 'react';
 
 function App() {

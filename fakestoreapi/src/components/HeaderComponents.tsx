@@ -2,9 +2,10 @@ import React from 'react'
 import './HeaderComponents.scss'
 import { Link } from 'react-router-dom'
 import { signOut } from 'firebase/auth';
-import { auth } from '../firebase/firebase.js'
+import { auth } from '../firebase/firebase'
 import { useDispatch } from 'react-redux';
 import { logoutSuccess } from '../reducer/actions';
+
 const HeaderComponents = () => {
 
   const dispatch = useDispatch();

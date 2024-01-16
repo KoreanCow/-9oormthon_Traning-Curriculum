@@ -5,6 +5,7 @@ import './TestingComponent.scss'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../reducer/actions';
+import { Product } from './testProducts';
 
 const TestingComponent = () => {
 
@@ -13,11 +14,11 @@ const TestingComponent = () => {
   const [products, setProducts] = useState([]);
   const [nowCategory, setNowCategory] = useState('All');
 
-  const selectCategory = (category) => {
+  const selectCategory = (category: string) => {
     setNowCategory(category);
   }
 
-  const cartHandler = (product) => {
+  const cartHandler = (product: Product) => {
     dispatch(addToCart(product));
     console.log('추가 되었습니다!')
   }
@@ -60,7 +61,7 @@ const TestingComponent = () => {
   )
 }
 
-const Products = ({ products, nowCategory, cartHandler }) => {
+const Products = ({ products, nowCategory, cartHandler }: { products: Product[]; nowCategory: string; cartHandler: (product: Product) => void }) => {
   const filteredProducts = nowCategory === 'All'
     ? products
     : products.filter(product => product.category === nowCategory);

@@ -1,4 +1,16 @@
-export const testProducts = [
+export interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  }
+}
+export const testProducts: Product[] = [
   {
     "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -241,7 +253,12 @@ export const testProducts = [
   }
 ]
 
-export const productCategory = [
+export interface Category {
+  id: number;
+  category: string;
+  category_kr: string;
+}
+export const productCategory: Category[] = [
   {
     'id': 1,
     'category': 'All',
